@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='images/biglogo.png') }}" class="big-logo" alt="Logo">
+        </a>
+        <nav class="nav-links">
+            <a href="{{ url_for('index') }}">Return Home</a>
+            <div class="dropdown-container">
+                <div class="menu-label">Our Team</div>
+                <div class="our-team-dropdown">
+                    <a href="{{ url_for('leadership') }}">Leadership Team</a>
+                    <a href="{{ url_for('members') }}">Members</a>
+                    <a href="{{ url_for('alumni') }}">Alumni</a>
+                </div>
+            </div>
+            <a href="{{ url_for('strategies') }}">Strategies</a>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+            <a href="{{ url_for('joinus') }}">Join Us</a>
+        </nav>
+    </div>
+
+    <div class="intro-container">
+        <h1>Student Investment Fund</h1>
+    </div>
+
+    <div class="about-us">
+        <h2>About Us</h2>
+        <p>The Imperial College Business School Student Investment Fund was established in 2018 and is the College’s first student-led investment fund, with £100,000 in assets under management, raised by donors and the Imperial College Endowment. The Fund runs several quantitative and fundamental strategies that are overseen by Professors Walter Distaso, James Sefton and Paolo Zaffaroni.</p>
+    </div>
+
+    <div class="outro-banner">
+        <div class="outro-content">
+            <div class="left-side">
+                <p>2025 Student Investment Fund</p>
+            </div>
+            <div class="right-side">
+                <a href="https://www.instagram.com/icbs.sif/" target="_blank"><img src="{{ url_for('static', filename='images/insta_logo.png') }}" width="30" height="30" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/imperial-college-business-school-student-investment-fund/?originalSubdomain=uk" target="_blank"><img src="{{ url_for('static', filename='images/linkedin_logo.png') }}" width="30" height="30" alt="Linkedin"></a>
+            </div>
+        </div>
+    </div>
+</body>

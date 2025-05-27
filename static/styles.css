@@ -1,0 +1,341 @@
+body {
+    background-color: #fafdff;
+    font-family: Cambria, serif;
+    text-align: center;
+    margin: 0;
+    padding-top: 60px;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding-top: 20px;
+}
+
+/* Top Banner */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e8ebed;
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 65px;
+}
+
+.big-logo {
+    width: 100px;
+    height: 70px;
+    margin: 5px;
+    margin-left: 50px;
+}
+
+.nav-links {
+    padding: 10px;
+    right: 60px;
+    top: 60px;
+    margin-right: 50px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: #242526;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #afc5db;
+}
+
+.menu-label {
+    display: block;
+    cursor: pointer;
+    font-size: 15px;
+    color: #242526;
+    z-index: 200;
+}
+
+.our-team-dropdown {
+    display: none;
+    flex-direction: column;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    border-radius: 10px;
+    z-index: 100;
+    top: 100%; 
+    left: 0;
+    background-color: #e8ebed;
+    min-width: 150px;
+}
+
+.our-team-dropdown a {
+    color: #242526;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-container:hover .our-team-dropdown {
+    display: flex;
+}
+
+/* Intro Container */
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/static/images/homepage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 150px;
+    margin-top: 5px;
+    color: black;
+    flex: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pop-up 1s ease-out forwards;
+}
+
+.intro-container h1 {
+    font-size: 50px; 
+    opacity: 0; 
+    transform: translateY(20px);
+    animation: pop-up 1s ease-out forwards;
+    animation-delay: 0.2s;
+    color: white;
+    -webkit-text-stroke: 0.6px black;
+}
+
+@keyframes pop-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+/* Bottom Banner */
+.outro-banner {
+    background-color: #e8ebed;
+    color: #242526;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    padding-top: 15px;
+    position: static;
+    bottom: 0;
+    z-index: 2;
+}
+
+.outro-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;  
+    margin: 0 auto;
+}
+
+.left-side {
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.right-side {
+    text-align: right;
+    margin-left: 980px;
+}
+
+.outro-banner a {
+    color: #242526;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.outro-content p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* About Us */
+.about-us {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 80px;
+}
+
+/* Leadership */
+.leadership {
+    text-align: left;
+    padding: 60px;
+}
+
+.leadership h1 {
+    text-align: center;
+}
+
+.leadership img {
+    width: 200px;
+    height: 200px;
+    padding-left: 50px;
+}
+
+.leadership-hierarchy {
+    padding: 20px;
+    padding-left: 120px;
+}
+
+.people-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;  
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.bio {
+    text-align: left;
+    width: 68%;
+}
+
+/* Members */
+.members {
+    text-align: left;
+    padding: 60px;
+}
+
+.members h1 {
+    text-align: center;
+}
+
+.members h2 {
+    padding-left: 10%;
+}
+
+.members img {
+    width: 200px;
+    height: 200px;
+}
+
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.member-hierarchy {
+    padding: 20px;
+}
+
+.member-details {
+    flex: 1 1 250px; 
+    max-width: 300px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member-bio {
+    text-align: left;
+}
+
+/* Contact Us */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 700px;
+    box-sizing: border-box;
+    gap: 20px;
+    padding-top: 25px;
+    padding-left: 10px;
+}
+
+.contact-form textarea {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 70%;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.contact-form button {
+    padding: 8px 16px;
+    background-color: #e8ebed;
+    color: #242526;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: none; 
+}
+
+.contact-form button:hover {
+    background-color: #afc5db;
+}
+
+.direct-contact {
+    flex: 2;
+    max-width: 250px;
+    font-size: 23px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.direct-contact a {
+    text-decoration: none;
+}
+
