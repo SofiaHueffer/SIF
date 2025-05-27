@@ -71,5 +71,12 @@ Phone Number: {phone_number}
     return render_template('contact.html')
 
 @app.route('/favicon.ico')
+@app.route('/favicon.png')
 def favicon():
     return '', 204
+<<<<<<< HEAD
+=======
+
+if __name__ == '__main__':
+    app.run(debug=True)
+>>>>>>> 87215b9 (commit)
