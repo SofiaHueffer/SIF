@@ -74,9 +74,6 @@ Phone Number: {phone_number}
 @app.route('/favicon.png')
 def favicon():
     return '', 204
-<<<<<<< HEAD
-=======
 
 if __name__ == '__main__':
     app.run(debug=True)
->>>>>>> 87215b9 (commit)
