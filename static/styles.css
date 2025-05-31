@@ -560,7 +560,9 @@ html {
     }
 
     .team-hierachy {
-        max-width: 90%;
+        display: column;
+        justify-content: center;
+        margin: 0px;
         padding-bottom: 35px;
     }
 
