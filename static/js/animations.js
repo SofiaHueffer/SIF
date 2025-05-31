@@ -1,9 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const scrollY = localStorage.getItem("scrollY");
-    if (scrollY !== null) {
-        setTimeout(() => {
-            window.scrollTo(0, parseInt(scrollY));
-        }, 100); 
+    // Check if the page was reloaded
+    const navType = performance.getEntriesByType("navigation")[0]?.type || performance.navigation.type;
+
+    if (navType === "reload" || navType === 1) {
+        // Restore scroll position only if it's a reload
+        const scrollY = localStorage.getItem("scrollY");
+        if (scrollY !== null) {
+            setTimeout(() => {
+                window.scrollTo(0, parseInt(scrollY));
+            }, 100); // Adjust delay if needed
+        }
+    } else {
+        // Clear any stored scroll position on first load or normal navigation
+        localStorage.removeItem("scrollY");
     }
 
     // Scroll animation observer
@@ -23,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Save scroll position before page unload
+// Save scroll position before reload
 window.addEventListener("beforeunload", () => {
     localStorage.setItem("scrollY", window.scrollY);
 });
