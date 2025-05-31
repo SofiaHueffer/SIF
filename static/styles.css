@@ -502,3 +502,106 @@ html {
     text-decoration: none;
 }
 
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+
+    .big-logo {
+        width: 65px;
+        height: 55px;
+    }
+
+    .banner {
+        height: 70px;
+    }
+
+    .nav-links {
+        gap: 8px;
+        margin-right: 7px;
+    }
+
+    .nav-links a,
+    .menu-label {
+        font-size: 15px;
+    }
+
+    .intro-container {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .intro-container h1 {
+        font-size: 36px;
+    }
+
+    .about-us {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .about-text,
+    .about-image {
+        max-width: 100%;
+    }
+
+    .about-text h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .about-text p {
+        margin: 20px 10px;
+        font-size: 16px;
+    }
+
+    .intro-all-teams h4 {
+        padding: 0 20px;
+        padding-top: 40px;
+    }
+
+    .team-hierachy {
+        max-width: 90%;
+        padding-bottom: 35px;
+    }
+
+    .intro-team {
+        width: 100%;
+    }
+
+    .outro-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .leadership-container,
+    .member-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .sidebar-nav,
+    .member-sidebar-nav {
+        display: none;
+    }
+
+    .leadership img,
+    .members img {
+        width: 150px;
+        height: 150px;
+        padding-left: 0;
+    }
+
+    .team {
+        grid-template-columns: 1fr;
+         max-width: 90%;
+        padding: 10px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        width: 100%;
+    }
+}
