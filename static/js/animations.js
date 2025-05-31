@@ -30,9 +30,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".about-text").forEach(el => {
         observer.observe(el);
     });
+
+    // Dropdown mobile toggle
+    const dropdowns = document.querySelectorAll(".dropdown-container");
+
+    dropdowns.forEach(dropdown => {
+        const label = dropdown.querySelector(".menu-label");
+        if (label) {
+            label.addEventListener("click", (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle("active");
+            });
+        }
+    });
+
+    // Save scroll position before reload
+    window.addEventListener("beforeunload", () => {
+        localStorage.setItem("scrollY", window.scrollY);
+    });
 });
 
-// Save scroll position before reload
-window.addEventListener("beforeunload", () => {
-    localStorage.setItem("scrollY", window.scrollY);
-});
