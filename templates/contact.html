@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/SIF Logos/SIF Favicon.png') }}">
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="banner">
         <a href="{{ url_for('index') }}">
-            <img src="{{ url_for('static', filename='images/biglogo.png') }}" class="big-logo" alt="Logo">
+            <img src="{{ url_for('static', filename='images/SIF Logos/SIF.png') }}" class="big-logo" alt="Logo">
         </a>
         <nav class="nav-links">
-            <a href="{{ url_for('index') }}">Return Home</a>
+            <a href="{{ url_for('index') }}">Home</a>
             <div class="dropdown-container">
-                <div class="menu-label">Our Team</div>
+                <div class="menu-label">Team</div>
                 <div class="our-team-dropdown">
-                    <a href="{{ url_for('leadership') }}">Leadership Team</a>
+                    <a href="{{ url_for('leadership') }}">Leadership</a>
                     <a href="{{ url_for('members') }}">Members</a>
-                    <a href="{{ url_for('alumni') }}">Alumni</a>
                 </div>
             </div>
-            <a href="{{ url_for('strategies') }}">Strategies</a>
             <a href="{{ url_for('contact') }}">Contact Us</a>
             <a href="{{ url_for('joinus') }}">Join Us</a>
         </nav>
@@ -29,32 +28,38 @@
 
     <div class="contact-container">
         <h1>Contact Us</h1>
-        
+
         <form class="contact-form" method="POST">
-            <textarea name="full_name" rows="2" required placeholder="First and Last Name"></textarea>
-            <textarea name="role" rows="2" required placeholder="Role"></textarea>
+            <textarea name="first_name" rows="2" required placeholder="First Name"></textarea>
+            <textarea name="last_name" rows="2" required placeholder="Last Name"></textarea>
+            <textarea name="org" rows="2" required placeholder="Organisation"></textarea>
             <textarea name="email" rows="2" required placeholder="Email"></textarea>
-            <textarea name="phone_number" rows="2" required placeholder="Phone Number"></textarea>
             <textarea name="subject" rows="2" required placeholder="Subject"></textarea>
             <textarea name="message" rows="6" required placeholder="Write message here"></textarea>
             <button type="submit">Send</button>
         </form>
 
         <div class="direct-contact">
-            <p>Email us at: someone@email.com</p>
-            <a href="https://www.instagram.com/icbs.sif/" target="_blank">Our Instagram</a>
-            <a href="https://www.linkedin.com/company/imperial-college-business-school-student-investment-fund/?originalSubdomain=uk" target="_blank">Our LinkedIn</a>
         </div>
     </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% set category, message = messages[-1] %}
+        <div class="alert alert-{{ category }}" role="alert" style="margin-bottom: 20px;">
+          {{ message }}
+        </div>
+      {% endif %}
+    {% endwith %}
 
     <div class="outro-banner">
         <div class="outro-content">
             <div class="left-side">
-                <p>2025 Student Investment Fund</p>
+                <a href="https://www.imperial.ac.uk/" target="_blank"><img src="{{ url_for('static', filename='images/imperial_logo.png') }}" width="175" height="21.5" alt="Imperial Website"></a>
             </div>
             <div class="right-side">
-                <a href="https://www.instagram.com/icbs.sif/" target="_blank"><img src="{{ url_for('static', filename='images/insta_logo.png') }}" width="30" height="30" alt="Instagram">
-                <a href="https://www.linkedin.com/company/imperial-college-business-school-student-investment-fund/?originalSubdomain=uk" target="_blank"><img src="{{ url_for('static', filename='images/linkedin_logo.png') }}" width="30" height="30" alt="Linkedin">
+                <a href="https://www.instagram.com/icbs.sif/" target="_blank"><img src="{{ url_for('static', filename='images/insta_logo.png') }}" width="30" height="30" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/imperial-college-business-school-student-investment-fund/?originalSubdomain=uk" target="_blank"><img src="{{ url_for('static', filename='images/linkedin_logo.png') }}" width="30" height="30" alt="Linkedin"></a>
             </div>
         </div>
     </div>
