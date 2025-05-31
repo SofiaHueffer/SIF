@@ -60,6 +60,8 @@ def contact():
 
 <p style="font-size: 8px; color: gray;">
   sif.getintouch@gmail.com email recovery information:<br><br
+  Email: sif.getintouch@gmail.com
+  Password (as of May 31, 2025): GetInTouchPassword
   Recovery emails of SIF.ICBS.official@outlook.com <br>
   and Sofia Hueffer (2025) email and phone number (smhueffer@gmail.com)<br><br>
 
