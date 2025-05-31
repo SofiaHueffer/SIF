@@ -502,6 +502,10 @@ html {
     text-decoration: none;
 }
 
+.note {
+    padding: 20px;
+}
+
 
 /* Mobile Phones */
 @media (max-width: 768px) {
