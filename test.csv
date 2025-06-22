@@ -1,0 +1,5 @@
+id,Timestamp,email,ln,team,course,gradyear,LinkedIn profile link,Personal website link,Contact number ,bio,Submit your professional headshot taken in front of the new IB board at the Business School,fn,subteam,Personal email,University email,Imperial CID,leader,order
+0,,email,name,Quant,bsc,2026,,,,bio,photo,first name,1,,,,yes,1
+1,,email 2,name 2,Fundemental,msc,2021,,,,bio 2,,first name 2,1,,,,yes,4
+2,,email 3 ,name 3,quant ,bsc,2020,,,,bio 3,,first name 3,2,,,,yes,3
+3,,email 4 ,name 4,quant ,bsc,2027,,,,bio 4,,first name 4,1,,,,,2

@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, abort
 from flask_mail import Mail, Message
+import pandas as pd
+from collections import defaultdict
 
 app = Flask(__name__)
 app.secret_key = 'Host'
@@ -10,11 +12,47 @@ def index():
 
 @app.route('/leadership-team')
 def leadership():
-    return render_template('leadership.html')
+    df = pd.read_csv('leadership.csv')
+    users = df.to_dict(orient='records')
+
+    grouped = defaultdict(lambda: defaultdict(list))
+    for member in users:
+        section = str(member.get("team", "Unknown")).strip().lower()
+        team = str(member.get("subteam", "Unassigned")).strip()
+        grouped[section][team].append(member)
+
+    return render_template('leadership.html', grouped=grouped)
 
 @app.route('/members')
 def members():
-    return render_template('members.html')
+    df = pd.read_csv('member.csv')
+    users = df.to_dict(orient='records')
+
+    grouped = defaultdict(lambda: defaultdict(list))
+
+    for member in users:
+        section = str(member.get("team", "Unknown")).strip().lower()
+        team = str(member.get("subteam", "Unassigned")).strip()
+        grouped[section][team].append(member)
+
+    return render_template('members.html', grouped=grouped)
+
+@app.route('/bio/<int:user_id>')
+def bio(user_id):
+    data_type = request.args.get('type', 'member')  
+
+    if data_type == 'leadership':
+        df = pd.read_csv('leadership.csv')
+    else:
+        df = pd.read_csv('member.csv')
+
+    df['id'] = df['id'].astype(int) 
+    user = df[df['id'] == user_id]
+
+    if user.empty:
+        abort(404)
+
+    return render_template('bio.html', user=user.iloc[0], user_type=data_type)
 
 @app.route('/alumni')
 def alumni():

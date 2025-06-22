@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/sif_logos/sif_favicon.png') }}">
+    <title>Members</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+</head>
+<body>
+    <div class="banner">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='images/sif_logos/sif.png') }}" class="big-logo" alt="Logo">
+        </a>
+        <nav class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <div class="dropdown-container">
+                <div class="menu-label">Team</div>
+                <div class="our-team-dropdown">
+                    <a href="{{ url_for('leadership') }}">Leadership</a>
+                    <a href="{{ url_for('members') }}">Members</a>
+                </div>
+            </div>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+            <a href="{{ url_for('joinus') }}">Join Us</a>
+        </nav>
+    </div>
+
+    {% if user_type == 'leadership' %}
+      <a href="{{ url_for('leadership') }}" class="back-link">< Back to Leadership</a>
+    {% else %}
+      <a href="{{ url_for('members') }}" class="back-link">< Back to Members</a>
+    {% endif %}
+
+    <div class="profile-container">
+
+      <div class="profile-text">
+        <p><strong>Name:</strong> {{ user.fn }} {{ user.ln }}</p>
+        <p><strong>Course:</strong> {{ user.course }}</p>
+
+        <div class="bio-container">
+          <p><strong>Bio:</strong> {{ user.bio }}</p>
+        </div>
+      </div>
+
+      <div class="profile-photo">
+        <img src="{{ url_for('static', filename='images/profile_pics/' ~ user.fn ~ '.png') }}" alt="{{ user.name }}">
+      </div>
+    </div>
+
+
+    <div class="outro-banner">
+        <div class="outro-content">
+            <div class="left-side">
+                <a href="https://www.imperial.ac.uk/" target="_blank"><img src="{{ url_for('static', filename='images/imperial_logo.png') }}" width="175" height="21.5" alt="Imperial Website"></a>
+            </div>
+            <div class="right-side">
+                <a href="https://www.instagram.com/icbs.sif/" target="_blank"><img src="{{ url_for('static', filename='images/insta_logo.png') }}" width="30" height="30" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/imperial-college-business-school-student-investment-fund/?originalSubdomain=uk" target="_blank"><img src="{{ url_for('static', filename='images/linkedin_logo.png') }}" width="30" height="30" alt="Linkedin"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -29,170 +29,52 @@
 
     <div class="member-container">
         <div class="member-sidebar-nav">
-            <ul>
-                <li><a href="#portfolio">Portfolio Teams</a></li>
-                <ul>
-                    <li><a href="#portfolio-alpha">Alpha Team</a></li>
-                    <li><a href="#portfolio-beta">Beta Team</a></li>
-                </ul>
-                <li><a href="#quantitative">Quantitative Teams</a></li>
-                <li><a href="#fundamental">Fundamental Teams</a></li>
-                <li><a href="#esg">ESG Teams</a></li>
-                <li><a href="#infrastructure">Infrastructure Teams</a></li>
-                <li><a href="#marketing">Marketing Teams</a></li>
-            </ul>
+          <ul>
+            {% for section, teams in grouped.items() %}
+              <li><a href="#{{ section }}">{{ section.replace('_', ' ').title() }} Teams</a></li>
+              <ul>
+                {% for team_name, members in teams.items() %}
+                  {% set team_id = team_name.lower().replace(' ', '-') %}
+                  <li><a href="#{{ team_id }}">{{ team_name }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endfor %}
+          </ul>
         </div>
 
         <div class="members">
-            <h1 class="member-title">Our Members</h1>
-            <div class="member-hierarchy" id="portfolio">
-                <h2>Porftolio Teams</h2>
+          <h1 class="member-title">Our Members</h1>
+          {% for section, teams in grouped.items() %}
+            <div class="member-hierarchy" id="{{ section }}">
+              <h2>{{ section.replace('_', ' ').title() }} Teams</h2>
 
-                <div class="team" id="portfolio-alpha">
+              {% for team_name, members in teams.items() %}
+                {% set team_id = team_name.lower().replace(' ', '-') %}
+                <h3>{{ team_name }}</h3>
+                <div class="team" id="{{ team_id }}">
 
+                  {% for member in members %}
                     <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name - Team Leader</h3>
-                            <h4>Team Name</h4>
-                            <p>Bio</p>
-                        </div>
+                      <img src="{{ url_for('static', filename='images/profile_pics/' ~ member.fn ~ '.png') }}" class="headshot" alt="{{ member.fn }} {{ member.ln }}">
+                      <div class="member-bio">
+                        <h3>
+                          {{ member.fn }} {{ member.ln }}
+                          {% if member.leader== "Yes" %} - Team Leader{% endif %}
+                        </h3>
+                        <a href="{{ url_for('bio', user_id=member['id'], type='member') }}" class="bio-link">> View Bio</a>
+                      </div>
                     </div>
-
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name</h3>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name</h3>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name</h3>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name</h3>
-                            <p>Bio</p>
-                        </div>
-                    </div>
+                  {% endfor %}
 
                 </div>
+              {% endfor %}
 
-                <div class="team" id="portfolio-beta">
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name - Team Leader</h3>
-                            <h4>Team Name</h4>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name</h3>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name</h3>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-            <div class="member-hierarchy" id="quantitative">
-                <h2>Quantative Teams</h2>
-                <div class="team">
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name - Team Leader</h3>
-                            <h4>Team Name</h4>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="member-hierarchy" id="fundamental">
-                <h2>Fundamental Teams</h2>
-                <div class="team">
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name - Team Leader</h3>
-                            <h4>Team Name</h4>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="member-hierarchy" id="esg">
-                <h2>ESG Teams</h2>
-                <div class="team">
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name - Team Leader</h3>
-                            <h4>Team Name</h4>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="member-hierarchy" id="infrastructure">
-                <h2>Infrastructure Teams</h2>
-                <div class="team">
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name - Team Leader</h3>
-                            <h4>Team Name</h4>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="member-hierarchy" id="marketing">
-                <h2>Marketing Teams</h2>
-                <div class="team">
-                    <div class="member-details">
-                        <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                        <div class="member-bio">
-                            <h3>Name - Team Leader</h3>
-                            <h4>Team Name</h4>
-                            <p>Bio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          {% endfor %}
         </div>
-    </div>
 
+
+    </div>
 
     <div class="outro-banner">
         <div class="outro-content">

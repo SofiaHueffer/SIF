@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/sif_logos/sif_favicon.png') }}">
+    <title>Leadership Tean</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+</head>
+<body>
+    <div class="banner">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='images/sif_logos/sif.png') }}" class="big-logo" alt="Logo">
+        </a>
+        <nav class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <div class="dropdown-container">
+                <div class="menu-label">Team</div>
+                <div class="our-team-dropdown">
+                    <a href="{{ url_for('leadership') }}">Leadership</a>
+                    <a href="{{ url_for('members') }}">Members</a>
+                </div>
+            </div>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+            <a href="{{ url_for('joinus') }}">Join Us</a>
+        </nav>
+    </div>
+
+    <h1 class="leadership-title">Our Leadership Team</h1>
+
+    <div class="leadership-container">
+        <div class="sidebar-nav">
+            <ul>
+                <li><a href="#supervisor-committee">Supervisor Committee</a></li>
+                <li><a href="#investment-committee">Investment Committee</a></li>
+                <li><a href="#phd-committee">PhD Advisory Committee</a></li>
+            </ul>
+        </div>
+
+        <div class="leadership">
+
+            <div class="leadership-hierarchy" id="supervisor-committee">
+                <h2>Supervisor Commitee</h2>
+
+                <div class="people-details">
+                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
+                    <div class="bio">
+                        <h3>Name</h3>
+                        <h4>Role</h4>
+                        <p>Bio</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leadership-hierarchy" id="investment-committee">
+                <h2>Investment Commitee</h2>
+
+                <div class="people-details">
+                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
+                    <div class="bio">
+                        <h3>Name</h3>
+                        <h4>Portfolio Department Director</h4>
+                        <p>Bio</p>
+                    </div>
+                </div>
+
+                <div class="people-details">
+                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
+                    <div class="bio">
+                        <h3>Name</h3>
+                        <h4>Quantative Department Director</h4>
+                        <p>Bio</p>
+                    </div>
+                </div>
+
+                <div class="people-details">
+                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
+                    <div class="bio">
+                        <h3>Name</h3>
+                        <h4>Fundamental Department Director</h4>
+                        <p>Bio</p>
+                    </div>
+                </div>
+
+                <div class="people-details">
+                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
+                    <div class="bio">
+                        <h3>Name</h3>
+                        <h4>ESG Department Director</h4>
+                        <p>Bio</p>
+                    </div>
+                </div>
+
+                <div class="people-details">
+                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
+                    <div class="bio">
+                        <h3>Name</h3>
+                        <h4>Infrastructure Department Director</h4>
+                        <p>Bio</p>
+                    </div>
+                </div>
+
+                <div class="people-details">
+                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
+                    <div class="bio">
+                        <h3>Name</h3>
+                        <h4>Marketing Department Director</h4>
+                        <p>Bio</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leadership-hierarchy" id="phd-committee">
+                <h2>PhD Advisory Commitee</h2>
+
+                <div class="people-details">
+                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
+                    <div class="bio">
+                        <h3>Name</h3>
+                        <h4>Role</h4>
+                        <p>Bio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="outro-banner">
+        <div class="outro-content">
+            <div class="left-side">
+                <a href="https://www.imperial.ac.uk/" target="_blank"><img src="{{ url_for('static', filename='images/imperial_logo.png') }}" width="175" height="21.5" alt="Imperial Website"></a>
+            </div>
+            <div class="right-side">
+                <a href="https://www.instagram.com/icbs.sif/" target="_blank"><img src="{{ url_for('static', filename='images/insta_logo.png') }}" width="30" height="30" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/imperial-college-business-school-student-investment-fund/?originalSubdomain=uk" target="_blank"><img src="{{ url_for('static', filename='images/linkedin_logo.png') }}" width="30" height="30" alt="Linkedin"></a>
+            </div>
+        </div>
+    </div>
+</body>

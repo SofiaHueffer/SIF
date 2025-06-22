@@ -30,101 +30,38 @@
     <h1 class="leadership-title">Our Leadership Team</h1>
 
     <div class="leadership-container">
-        <div class="sidebar-nav">
-            <ul>
-                <li><a href="#supervisor-committee">Supervisor Committee</a></li>
-                <li><a href="#investment-committee">Investment Committee</a></li>
-                <li><a href="#phd-committee">PhD Advisory Committee</a></li>
-            </ul>
-        </div>
+      <div class="sidebar-nav">
+        <ul>
+          {% for section, teams in grouped.items() %}
+            <li><a href="#{{ section }}">{{ section.replace('_', ' ').title() }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
 
-        <div class="leadership">
+      <div class="leadership">
+        {% for section, teams in grouped.items() %}
+          <div class="leadership-hierarchy" id="{{ section }}">
+            <h2>{{ section.replace('_', ' ').title() }}</h2>
 
-            <div class="leadership-hierarchy" id="supervisor-committee">
-                <h2>Supervisor Commitee</h2>
-
+            {% for team_name, members in teams.items() %}
+              {% for member in members %}
                 <div class="people-details">
-                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                    <div class="bio">
-                        <h3>Name</h3>
-                        <h4>Role</h4>
-                        <p>Bio</p>
-                    </div>
+                  <img src="{{ url_for('static', filename='images/profile_pics/' ~ member.fn ~ '.png') }}" class="headshot" alt="{{ member.fn }} {{ member.ln }}">
+                  <div class="bio">
+                    <h3>{{ member.fn }} {{ member.ln }}</h3>
+                    {% if section == 'investment committee' %}
+                      <h4>{{ member.subteam }} Department Director</h4>
+                    {% endif %}
+                    <a href="{{ url_for('bio', user_id=member['id'], type='leadership') }}" class="bio-link">> View Bio</a>
+                  </div>
                 </div>
-            </div>
-
-            <div class="leadership-hierarchy" id="investment-committee">
-                <h2>Investment Commitee</h2>
-
-                <div class="people-details">
-                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                    <div class="bio">
-                        <h3>Name</h3>
-                        <h4>Portfolio Department Director</h4>
-                        <p>Bio</p>
-                    </div>
-                </div>
-
-                <div class="people-details">
-                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                    <div class="bio">
-                        <h3>Name</h3>
-                        <h4>Quantative Department Director</h4>
-                        <p>Bio</p>
-                    </div>
-                </div>
-
-                <div class="people-details">
-                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                    <div class="bio">
-                        <h3>Name</h3>
-                        <h4>Fundamental Department Director</h4>
-                        <p>Bio</p>
-                    </div>
-                </div>
-
-                <div class="people-details">
-                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                    <div class="bio">
-                        <h3>Name</h3>
-                        <h4>ESG Department Director</h4>
-                        <p>Bio</p>
-                    </div>
-                </div>
-
-                <div class="people-details">
-                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                    <div class="bio">
-                        <h3>Name</h3>
-                        <h4>Infrastructure Department Director</h4>
-                        <p>Bio</p>
-                    </div>
-                </div>
-
-                <div class="people-details">
-                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                    <div class="bio">
-                        <h3>Name</h3>
-                        <h4>Marketing Department Director</h4>
-                        <p>Bio</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="leadership-hierarchy" id="phd-committee">
-                <h2>PhD Advisory Commitee</h2>
-
-                <div class="people-details">
-                    <img src="{{ url_for('static', filename='images/blank_icon.png') }}" class="headshot">
-                    <div class="bio">
-                        <h3>Name</h3>
-                        <h4>Role</h4>
-                        <p>Bio</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
+
 
 
     <div class="outro-banner">
