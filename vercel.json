@@ -15,5 +15,9 @@
       "src": "/(.*)",
       "dest": "app.py"
     }
-  ]
+  ],
+  "static": {
+    "directory": "static"
+  }
 }
+
